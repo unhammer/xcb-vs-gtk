@@ -1,8 +1,15 @@
 # haskell-gi crash test case #
 
+(Possibly fixed by
+https://github.com/haskell-gi/haskell-gi/commit/814a6d35909e554f6b5a6a4650b18402f9bbb645
+?)
 
 To reproduce:
 ```
+# If on Ubuntu/Debian
+sudo apt-get install libgirepository1.0-dev
+sudo apt-get install libgtk-3-dev
+# (or equivalently for your distro)
 stack build
 stack exec xcb-vs-gtk
 ```
