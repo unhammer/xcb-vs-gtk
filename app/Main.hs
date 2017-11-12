@@ -4,6 +4,8 @@ module Main where
 
 import           Data.GI.Base
 import qualified Data.Text    as T
+import qualified GI.Gdk
+import qualified GI.GLib
 import           GI.GObject
 import           GI.Gtk       (IsBuilder, ToolButton (..), Window (..))
 import qualified GI.Gtk
@@ -15,15 +17,17 @@ main = do
   mainwindow <- builderGetObject Window builder "xcb-vs-gtk-window"
 
   openButton <- builderGetObject ToolButton builder "open-button"
-  _shid0     <- GI.Gtk.onWidgetButtonReleaseEvent openButton $ \_evbtn ->
-    GI.Gtk.fileChooserNativeNew Nothing
-                                (Just mainwindow)
-                                GI.Gtk.FileChooserActionSave
-                                Nothing
-                                Nothing
-      >>= GI.Gtk.nativeDialogRun
-      >>= print
-      >>  return True
+  _shid0     <- GI.Gtk.onWidgetButtonReleaseEvent openButton $ \_evbtn -> do
+    _esid <- GI.Gdk.threadsAddIdle GI.GLib.PRIORITY_DEFAULT $
+      GI.Gtk.fileChooserNativeNew Nothing
+                                  (Just mainwindow)
+                                  GI.Gtk.FileChooserActionSave
+                                  Nothing
+                                  Nothing
+        >>= GI.Gtk.nativeDialogRun
+        >>= print
+        >>  return True
+    return True
 
   _shid1     <- GI.Gtk.onWidgetStateFlagsChanged mainwindow print
 
