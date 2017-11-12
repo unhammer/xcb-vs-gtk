@@ -1,6 +1,10 @@
 resolver: lts-9.11
+
 packages:
-- '.'
+- location: .
+- location: https://hackage.haskell.org/package/haskell-gi-base-0.20.5/haskell-gi-base-0.20.5.tar.gz
+  extra-dep: true
+
 extra-deps:
   - gi-atk-2.0.14
   - gi-cairo-1.0.14
@@ -13,6 +17,7 @@ extra-deps:
   - gi-gtk-hs-0.3.5.0
   - gi-pango-1.0.15
   - haskell-gi-overloading-0.0
+  - haskell-gi-base-0.20.5
 
 extra-package-dbs: []
 

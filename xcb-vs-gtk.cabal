@@ -13,7 +13,7 @@ cabal-version:       >=1.10
 executable            xcb-vs-gtk
   main-is:            Main.hs
   build-depends:       base
-                     , haskell-gi-base == 0.20.*
+                     , haskell-gi-base == 0.20.5
                      , haskell-gi-overloading ==0.0.*
                      , gi-glib == 2.0.*
                      , gi-gobject == 2.0.*
