@@ -1,4 +1,4 @@
-haskell-gi crash test case
+# haskell-gi crash test case #
 
 
 To reproduce:
@@ -25,3 +25,12 @@ or
 ```
 Gdk-Message: xcb-vs-gtk: Fatal IO error 0 (Success) on X server :0.0.
 ```
+or it'll just hang and need to be killed from outside.
+
+-----
+
+Sometimes it'll also show a [possibly harmless](https://stackoverflow.com/a/24057455/69663)
+```
+(xcb-vs-gtk:31194): GLib-CRITICAL **: Source ID 1904 was not found when attempting to remove it
+```
+(without crashing)
