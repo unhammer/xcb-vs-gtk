@@ -1,0 +1,27 @@
+name:                xcb-vs-gtk
+version:             0.1.0.0
+license:             BSD3
+license-file:        LICENSE
+author:              Kevin Brubeck Unhammer
+maintainer:          unhammer@fsfe.org
+copyright:           Copyright: (c) 2017 Kevin Brubeck Unhammer
+category:            Application
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+executable            xcb-vs-gtk
+  main-is:            Main.hs
+  build-depends:       base
+                     , haskell-gi-base == 0.20.*
+                     , haskell-gi-overloading ==0.0.*
+                     , gi-glib == 2.0.*
+                     , gi-gobject == 2.0.*
+                     , gi-gtk == 3.0.*
+                     , gi-gdk == 3.0.*
+                     , gi-gdkpixbuf == 2.0.*
+                     , text == 1.2.*
+                     , filepath == 1.4.*
+  ghc-options:        -threaded -with-rtsopts=-N -Wall -freverse-errors
+  hs-source-dirs:     app
+  default-language:   Haskell2010
